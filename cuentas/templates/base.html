@@ -9,8 +9,14 @@
 
     <div class="nav">
         <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'signin' %}">SigIn</a></li>
-        <li><a href="{% url 'signup' %}">SignUp</a></li>
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'cuentas' %}">Cuentas</a></li>
+            <li><a href="{% url 'noticias' %}">Noticias</a></li>
+            <li><a href="{% url 'signout' %}">LogOut</a></li>
+        {% else %}
+            <li><a href="{% url 'signin' %}">SignIn</a></li>
+            <li><a href="{% url 'signup' %}">SignUp</a></li>
+       {% endif %}
     </div>
 
     {% block content %}
