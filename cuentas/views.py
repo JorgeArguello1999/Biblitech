@@ -78,7 +78,7 @@ def cuentas(request):
     })
 
 @login_required
-def cuentas_create(request):
+def create_count(request):
     try:
         if request.method == "POST":
             form = CountsForm(request.POST)
@@ -87,6 +87,15 @@ def cuentas_create(request):
         return redirect("cuentas")
     except:
         return redirect("cuentas")
+
+@login_required
+def update_count(request):
+    return redirect("home")
+
+@login_required
+def delete_count(request):
+    return redirect("home")
+
 
 @login_required
 def noticias(request):

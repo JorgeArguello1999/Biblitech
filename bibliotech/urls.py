@@ -25,6 +25,8 @@ urlpatterns = [
     path("signup/", views.signup, name="signup"),
     path("signout/", views.signout, name="signout"),
     path("cuentas/", views.cuentas, name="cuentas"),
-    path("cuentas/create", views.cuentas_create, name="cuentas_create"),
+    path("cuentas/create", views.create_count, name="create_count"),
+    path("cuentas/update<int:count_id>", views.update_count, name="update_count"),
+    path("cuentas/delete<int:count_id>", views.update_count, name="delete_count"),
     path("noticias/", views.noticias, name="noticias"),
 ]

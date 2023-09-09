@@ -31,11 +31,44 @@
 </div>
 
 <div class="form">
-    <form action="{% url 'cuentas_create' %}" method="POST">
+    <form action="{% url 'create_count' %}" method="POST">
         {% csrf_token %}
         {{ form }}
         <button>Save</button>
     </form>
 </div>
+
+
+<div class="count-forms">
+        {% for count in counts %}
+        <div class="count-form">
+            <form method="POST" action="{% url 'update_count' count.id %}">
+                {% csrf_token %}
+                    <label for="grade{{ count.id }}">Grade</label>
+                    <input type="text" id="grade{{ count.id }}" name="grade" value="{{ count.grade }}" class="form-control">
+
+                    <label for="teacher{{ count.id }}">Teacher</label>
+                    <input type="text" id="teacher{{ count.id }}" name="teacher" value="{{ count.teacher }}" class="form-control">
+
+                    <label for="mount{{ count.id }}">Mount</label>
+                    <input type="text" id="mount{{ count.id }}" name="mount" value="{{ count.mount }}" class="form-control">
+
+                    <label for="date{{ count.id }}">Date</label>
+                    <input type="date" id="date{{ count.id }}" name="date" value="{{ count.date }}" class="form-control">
+
+                    <label for="payed{{ count.id }}">Paid</label>
+                    <input type="checkbox" id="payed{{ count.id }}" name="payed" {% if count.payed %}checked{% endif %}>
+                <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Update</button>
+            </form>
+
+            <form method="POST" action="{% url 'delete_count' count.id %}" class="delete-form">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button>
+            </form>
+
+        </div>
+        {% endfor %}
+</div>
+
 
 {% endblock %}
