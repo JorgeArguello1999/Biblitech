@@ -1,0 +1,24 @@
+.menav a{
+    padding: 0.5em;
+    border-radius: 0.4em;
+}
+.menav a:hover{
+    background-color: white;
+    color: gray;
+}
+.signout{
+    background-color: red;
+    color: white;
+}
+
+/* Count Table */
+.count_table{
+    padding: 1em;
+}
+.count_table table, th, td{
+    border-style: solid;
+}
+.count_table th{
+    background-color: black;
+    color: white;
+}

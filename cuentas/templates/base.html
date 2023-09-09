@@ -1,23 +1,29 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BibliTech</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 </head>
 <body>
 
-    <div class="nav">
-        <li><a href="{% url 'home' %}">Home</a></li>
+    <nav class="navbar navbar-dark bg-dark menav">
+
+            <a class="navbar-brand" href="{% url 'home' %}">Home</a>
         {% if user.is_authenticated %}
-            <li><a href="{% url 'cuentas' %}">Cuentas</a></li>
-            <li><a href="{% url 'noticias' %}">Noticias</a></li>
-            <li><a href="{% url 'signup' %}">SignUp</a></li>
-            <li><a href="{% url 'signout' %}">LogOut</a></li>
+            <a class="navbar-brand" href="{% url 'cuentas' %}">Cuentas</a>
+            <a class="navbar-brand" href="{% url 'noticias' %}">Noticias</a>
+            <a class="navbar-brand" href="{% url 'signup' %}">SignUp</a>
+            <a class="navbar-brand signout" href="{% url 'signout' %}">LogOut</a>
         {% else %}
-            <li><a href="{% url 'signin' %}">SignIn</a></li>
+            <a class="navbar-brand" href="{% url 'signin' %}">SignIn</a>
        {% endif %}
-    </div>
+
+    </nav>
 
     {% block content %}
     {% endblock %}

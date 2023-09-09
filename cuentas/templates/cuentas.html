@@ -4,25 +4,30 @@
 <h1>Welcome to Cuentas</h1>
 
 <div class="count_table">
-    <table>
-        <tr>
-            <th>Grade</th>
-            <th>Teacher</th>
-            <th>Mount</th>
-            <th>Payed</th>
-            <th>Date</th>
-        </tr>
-
-        {% for count in counts %}
-        <tr>
-            <td>{{ count.grade }}</td>
-            <td>{{ count.teacher }}</td>
-            <td>{{ count.mount }}</td>
-            <td>{{ count.payed }}</td>
-            <td>{{ count.date }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Grade</th>
+                <th>Teacher</th>
+                <th>Mount</th>
+                <th>Payed</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for count in counts %}
+            <tr>
+                <td>{{ count.id }}</td>
+                <td>{{ count.grade }}</td>
+                <td>{{ count.teacher }}</td>
+                <td>{{ count.mount }}</td>
+                <td>{{ count.payed }}</td>
+                <td>{{ count.date }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+   </table>
 </div>
 
 <div class="form">
