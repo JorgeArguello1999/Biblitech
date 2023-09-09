@@ -69,10 +69,24 @@ def signout(request):
 
 @login_required
 def cuentas(request):
+    error = request.GET.get("error")
     counts = Counts.objects.all()
     return render(request, "cuentas.html", {
-        "counts": counts
+        "form": CountsForm,
+        "counts": counts,
+        "error": error
     })
+
+@login_required
+def cuentas_create(request):
+    try:
+        if request.method == "POST":
+            form = CountsForm(request.POST)
+            new_task = form.save(commit=False)
+            new_task.save()
+        return redirect("cuentas")
+    except:
+        return redirect("cuentas")
 
 @login_required
 def noticias(request):

@@ -25,4 +25,12 @@
     </table>
 </div>
 
+<div class="form">
+    <form action="{% url 'cuentas_create' %}" method="POST">
+        {% csrf_token %}
+        {{ form }}
+        <button>Save</button>
+    </form>
+</div>
+
 {% endblock %}
